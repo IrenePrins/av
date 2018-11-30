@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aanbod index{% endblock %}
+
+{% block body %}
+    <h1>Aanbod index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>Streetname</th>
+                <th>Number</th>
+                <th>Zipcode</th>
+                <th>TypeAanschaf</th>
+                <th>TypeObject</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for aanbod in aanbods %}
+            <tr>
+                <td>{{ aanbod.id }}</td>
+                <td>{{ aanbod.name }}</td>
+                <td>{{ aanbod.slug }}</td>
+                <td>{{ aanbod.streetname }}</td>
+                <td>{{ aanbod.number }}</td>
+                <td>{{ aanbod.zipcode }}</td>
+                <td>{{ aanbod.typeAanschaf }}</td>
+                <td>{{ aanbod.typeObject }}</td>
+                <td>{{ aanbod.description }}</td>
+                <td>{{ aanbod.price }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('aanbod_show', {'id': aanbod.id}) }}">show</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('aanbod_edit', {'id': aanbod.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('aanbod_new') }}">Create new</a>
+{% endblock %}

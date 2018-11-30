@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Aanbod{% endblock %}
+
+{% block body %}
+    <h1>Edit Aanbod</h1>
+
+    {{ include('aanbod/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('aanbod_index') }}">back to list</a>
+
+    {{ include('aanbod/_delete_form.html.twig') }}
+{% endblock %}
