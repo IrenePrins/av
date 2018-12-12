@@ -20,8 +20,6 @@ class AanbodController extends AbstractController
      */
     public function index(AanbodRepository $aanbodRepository): Response
     {
-
-        
         return $this->render('aanbod/index.html.twig', ['aanbods' => $aanbodRepository->findAll()]);
     }
 
@@ -49,7 +47,7 @@ class AanbodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="aanbod_show", methods="GET")
+     * @Route("/{slug}", name="aanbod_show", methods="GET")
      */
     public function show(Aanbod $aanbod): Response
     {
@@ -57,7 +55,7 @@ class AanbodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="aanbod_edit", methods="GET|POST")
+     * @Route("/{slug}/edit", name="aanbod_edit", methods="GET|POST")
      */
     public function edit(Request $request, Aanbod $aanbod): Response
     {
@@ -77,7 +75,7 @@ class AanbodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="aanbod_delete", methods="DELETE")
+     * @Route("/{slug}", name="aanbod_delete", methods="DELETE")
      */
     public function delete(Request $request, Aanbod $aanbod): Response
     {

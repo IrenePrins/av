@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Admin;
 
 class AdminFixture extends Fixture
 {
@@ -11,7 +12,10 @@ class AdminFixture extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-
+            $admin = new Admin();
+            $admin->setEmail('admin@test.com');
+            return $admin;
+            
         $manager->flush();
     }
 }
